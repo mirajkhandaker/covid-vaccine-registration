@@ -63,5 +63,25 @@ This project combines Laravel 11 as the backend framework with React & Bootstrap
    This command will run React in build mode.
 10. To access the application open your browser and visit this url http://127.0.0.1:8000 or the port show in your terminal after running the laravel application.
 
-11. Please update your .env file **APP_URL** with the port number show when you run the Laravel application. This URL will use by react application as base URL. If this url does not set properly than React/Frontend not going to work properly
+11. Please update your .env file **APP_URL** with the port number show when you run the Laravel application. This URL will use by react application as base URL. If this url does not set properly than React/Frontend not going to work properly.
+12. Sending the email for every day at 9:00 PM run this command
+    ```
+    php artisan schedule:work
+    ```
+
+## Changes need to be make for sending SMS ##
+
+- Need to be configure SMS vendor credentials like secret key, app key what ever credentials provide by the vendor.
+- Then need to implement a function for sending SMS inside `VaccinationScheduleNotification` for example `
+    ```
+  public function toSms($notifiable){
+       implement the function
+  }
+  ```
+- Call this function from inside `toMail`
+    ```
+    public function toMail($notifiable){
+        $this->toSms($notifiable);n
+  }
+  ```
    
