@@ -1,7 +1,7 @@
 
 const InputField = ({label, name, type, value,handleChange,isRequired=false,errors}) => {
     return (
-        <div className="mb-3">
+        <div className="">
             <label htmlFor={name}
                    className={`form-label ${isRequired && 'required'}`}>
                 {label}

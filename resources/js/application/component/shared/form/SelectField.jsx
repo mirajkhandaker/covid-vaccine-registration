@@ -1,7 +1,7 @@
 
 const SelectField = ({options,label, name, value,handleChange,isRequired=false,errors}) => {
     return (
-        <div className="mb-3">
+        <div>
             <label htmlFor={name}
                    className={`form-label ${isRequired && 'required'}`}>
                 {label}

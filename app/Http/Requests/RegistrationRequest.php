@@ -26,6 +26,7 @@ class RegistrationRequest extends FormRequest
             'nid' => 'required|unique:users,nid|max:20',
             'email' => 'required|email|unique:users,email',
             'vaccine_center_id' => 'required|exists:vaccine_centers,id',
+            'phone_number' => 'required|regex:/^01[3-9]\d{8}$/',
         ];
     }
 

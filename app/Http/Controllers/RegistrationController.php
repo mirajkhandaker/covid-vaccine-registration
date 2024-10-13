@@ -26,6 +26,7 @@ class RegistrationController extends Controller
                         'name' => $request->input('name'),
                         'email' => $request->input('email'),
                         'nid' => $request->input('nid'),
+                        'phone_number' => $request->input('phone_number'),
                         'vaccine_center_id' => $request->input('vaccine_center_id'),
                         'scheduled_date' => $this->getNextAvailableDate(now(), $request->input('vaccine_center_id')),
                     ]

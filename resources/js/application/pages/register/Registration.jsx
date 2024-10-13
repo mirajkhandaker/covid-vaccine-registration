@@ -11,6 +11,7 @@ const Registration = () => {
         email: "",
         nid: "",
         vaccine_center_id: "",
+        phone_number: ""
     }
 
     const [formData, setFormData] = useState(initialFormData);
@@ -93,6 +94,17 @@ const Registration = () => {
                                     <div className="col-md-6 col-12 mb-3">
                                         <InputField
                                             type="text"
+                                            label="Phone Number"
+                                            name="phone_number"
+                                            isRequired={true}
+                                            value={formData.phone_number}
+                                            handleChange={handleFormDataChange}
+                                            errors={errors}
+                                        />
+                                    </div>
+                                    <div className="col-md-6 col-12 mb-3">
+                                        <InputField
+                                            type="text"
                                             label="NID No"
                                             name="nid"
                                             isRequired={true}
@@ -112,7 +124,7 @@ const Registration = () => {
                                             errors={errors}
                                         />
                                     </div>
-                                    <div className="col-12 text-end">
+                                    <div className="col-md-6 col-12 text-end align-content-center">
                                         <button type="submit" className="btn btn-primary btn-sm"
                                                 disabled={isSubmitting}>
                                             {isSubmitting ? 'Submitting...' : 'Submit'}

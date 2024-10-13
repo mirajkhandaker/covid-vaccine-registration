@@ -12,9 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('nid')
+            $table->string('phone_number')
                 ->index()
                 ->after('email');
+
+            $table->string('nid')
+                ->index()
+                ->after('phone_number');
 
             $table->foreignId('vaccine_center_id')
                 ->after('nid')
