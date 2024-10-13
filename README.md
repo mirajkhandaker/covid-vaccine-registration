@@ -21,7 +21,7 @@ This project combines Laravel 11 as the backend framework with React & Bootstrap
    ```bash
    npm install
 
-4. Copy .env from .env.example:
+4. Copy .env.example to .env:
 
    ```bash
    cp .env.example .env
@@ -63,7 +63,7 @@ This project combines Laravel 11 as the backend framework with React & Bootstrap
    This command will run React in build mode.
 10. To access the application open your browser and visit this url http://127.0.0.1:8000 or the port show in your terminal after running the laravel application.
 
-11. Please update your .env file **APP_URL** with the port number show when you run the Laravel application. This URL will use by react application as base URL. If this url does not set properly than React/Frontend not going to work properly.
+11. Please update your `.env` file `APP_URL` with the URL shown when you run the Laravel application. This URL will be used by the React application as the base URL. If this URL is not set properly, then the React frontend will not work properly.
 12. Sending the email for every day at 9:00 PM run this command
     ```
     php artisan schedule:work
@@ -71,17 +71,18 @@ This project combines Laravel 11 as the backend framework with React & Bootstrap
 
 ## Changes need to be make for sending SMS ##
 
-- Need to be configure SMS vendor credentials like secret key, app key what ever credentials provide by the vendor.
-- Then need to implement a function for sending SMS inside `VaccinationScheduleNotification` for example `
+- Configure the SMS vendor credentials like secret key and app key as provided by the vendor.
+- implement a function for sending SMS inside the `VaccinationScheduleNotification` class. For example:
     ```
   public function toSms($notifiable){
-       implement the function
+       //implement the function
   }
   ```
-- Call this function from inside `toMail`
+- Call this function from inside the `toMail` method:
     ```
     public function toMail($notifiable){
-        $this->toSms($notifiable);n
+        $this->toSms($notifiable);
+        //Existing email notification logic
   }
   ```
    
